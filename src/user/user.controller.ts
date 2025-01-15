@@ -15,13 +15,13 @@ import { UpdatePutUserDTO } from './dto/update-put-user.dto';
 import { UserService } from './user.service';
 import { LogInterceptor } from 'src/interceptors/log.interceptor';
 import { ParamId } from 'src/decorators/param-id.decorator';
-import { Roles } from 'src/decorators/roles.decorator';
-import { Role } from 'src/enums/role.enum';
+// import { Roles } from 'src/decorators/roles.decorator';
+// import { Role } from 'src/enums/role.enum';
 import { RoleGuard } from 'src/guards/role.guard';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { SkipThrottle, ThrottlerGuard } from '@nestjs/throttler';
 
-@Roles(Role.Admin)
+// @Roles(Role.User)
 @UseGuards(ThrottlerGuard, AuthGuard, RoleGuard)
 @UseInterceptors(LogInterceptor)
 @Controller('users')
@@ -35,7 +35,6 @@ export class UserController {
     return this.userService.create(data);
   }
 
-  @Roles(Role.User, Role.Admin)
   @Get()
   async list() {
     return this.userService.list();
