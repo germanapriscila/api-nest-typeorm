@@ -106,7 +106,7 @@ export class UserService {
   async delete(id: number) {
     await this.idExists(id);
     await this.usersRepository.delete(id);
-    return true;
+    return { success: true };
   }
 
   async idExists(id: number) {
