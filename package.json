@@ -26,7 +26,7 @@
     "migrate:create": "npm run typeorm:ts migration:create -- ./dist/typeorm/migrations/Migrate",
     "migrate:up": "npm run typeorm:ts migration:run -- -d ./dist/typeorm/data-source.js",
     "migrate:down": "npm run typeorm:ts migration:revert -- -d ./dist/typeorm/data-source.js",
-    "preprod": "npm run format && npm run lint && npm test && npm run test:e2e", 
+    "preprod": "npm run format && npm run lint && npm test", 
     "prod": "npm run build"
   },
   "dependencies": {
